@@ -1,4 +1,6 @@
 fun main() {
+//    Link to the problem: https://projecteuler.net/problem=2
+//    Submitted answer: 4613732
     var first = 1
     var second = 2
     var third = 0

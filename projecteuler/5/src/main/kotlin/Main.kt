@@ -1,4 +1,6 @@
 fun main() {
+//    Link to the problem: https://projecteuler.net/problem=5
+//    Submitted answer: 232792560
     val limit = 20
     val divisorsMap = HashMap<Int, Int>()
     for (i in 2..limit)

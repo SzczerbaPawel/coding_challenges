@@ -1,4 +1,6 @@
 fun main() {
+//    Link to the problem: https://projecteuler.net/problem=4
+//    Submitted answer: 906609
     var max = 0
     for ( i in 100..999 ) {
         for ( j in 100..999 ) {

@@ -1,4 +1,6 @@
 fun main(args: Array<String>) {
+//    Link to the problem: https://projecteuler.net/problem=1
+//    Submitted answer: 233168
     val start = System.currentTimeMillis()
     var sum=0
 
