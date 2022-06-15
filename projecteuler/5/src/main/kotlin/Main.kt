@@ -1,5 +1,24 @@
 fun main() {
-    println(divisors(100))
+    val limit = 20
+    val divisorsMap = HashMap<Int, Int>()
+    for (i in 2..limit)
+    {
+        divisorsMap[i] = 0
+    }
+    for (i in 2..limit)
+    {
+        combineHashMaps(divisors(i), divisorsMap)
+    }
+    println("Map of divisors: $divisorsMap")
+    var answer =1
+    for (i in 2..limit)
+    {
+        for (j in 1..divisorsMap[i]!!){
+            answer *= i
+        }
+    }
+    println("Answer: $answer")
+
 }
 
 fun divisors(number: Int): HashMap<Int, Int> {
@@ -18,4 +37,13 @@ fun divisors(number: Int): HashMap<Int, Int> {
     }
 
     return theMap
+}
+
+fun combineHashMaps(mapToCombine: HashMap<Int, Int>, combinedMap: HashMap<Int, Int>){
+    for (i in 2..mapToCombine.size+1)
+    {
+        if (mapToCombine[i]!! > combinedMap[i]!!){
+            combinedMap[i] = mapToCombine[i]!!
+        }
+    }
 }
