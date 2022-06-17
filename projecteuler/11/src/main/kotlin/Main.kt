@@ -1,4 +1,6 @@
 fun main() {
+//    Link to the problem: https://projecteuler.net/problem=11
+//    Submitted answer: 70600674
     val input =
         "08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08 " +
     "49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00 " +
@@ -27,20 +29,41 @@ fun main() {
             array[i][j] = list[i*19+j]
         }
     }
-    var max1=0
+
+    var maxHorizontal=0
+    var maxVertical=0
     for (i in 0..19){
         for (j in 0..19-3){
-            var temp=1
+            var tempHorizontal=1
+            var tempVertical=1
             for (k in 0..3){
 //                println("$temp * ${array[i][j+k]} = ${array[i][j+k]*temp}")
-                temp *= array[i][j+k]
+                tempHorizontal *= array[i][j+k]
+                tempVertical *= array[j+k][i]
             }
-            if (temp > max1) {
+            if (tempHorizontal > maxHorizontal) {
 //                println("Replacing $max1 with $temp")
-                max1 = temp
+                maxHorizontal = tempHorizontal
+            }
+            if (tempVertical > maxVertical) {
+//                println("Replacing $max1 with $temp")
+                maxVertical = tempVertical
             }
 //            println("End")
         }
     }
-    println("Answer: $max1")
+
+    var maxDiagonal=0
+    for (i in 0..19-3){
+        for (j in 0..19-3){
+            var tempDiagonal=1
+            for (k in 0..3){
+                tempDiagonal *= array[i+k][j+k]
+            }
+            if (tempDiagonal > maxDiagonal) {
+                maxDiagonal = tempDiagonal
+            }
+        }
+    }
+    println("Answer: ${listOf(maxHorizontal, maxVertical, maxDiagonal).maxOrNull()?: 0}")
 }
