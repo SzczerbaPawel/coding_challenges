@@ -1,6 +1,6 @@
 def is_pentagonal(num):
     penTest = ((1 + 24 * num)**0.5 + 1.0) / 6.0;
-    return penTest == (int(penTest));
+    return penTest == (int(penTest))
 
 
 for i in range(2, 2168):
